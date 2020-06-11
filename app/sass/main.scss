@@ -1,0 +1,145 @@
+// variables
+$violetColor: hsl(257, 40%, 49%);
+
+// mixin
+@mixin screen-for-desktop{
+    @media screen and (min-width: 768px) {
+        @content
+    }
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: $violetColor;
+    background-image: url(/images/bg-mobile.svg);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    @include screen-for-desktop{
+        background-image: url(/images/bg-desktop.svg);
+    }
+}
+
+img{
+    width: 100%;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+header{
+    min-width: 10vh;
+    .logo{
+        width: 150px;
+        padding: 1em 0;
+
+        @include screen-for-desktop{
+            width: 250px;
+        }
+    }
+}
+
+.hero{
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+
+    @include screen-for-desktop{
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__image{
+        width: 300px;
+
+        @include screen-for-desktop{
+            width: 60%;
+        }
+    }
+
+    &__content{
+        text-align: center;
+        color: #fff;
+        width: 100%;
+
+        @include screen-for-desktop{
+            width: 40%;
+            text-align: left;
+            padding-left: 2em;
+        }
+        h1{
+            font-size: 31px;
+            @include screen-for-desktop{
+                font-size: 48px;
+            }
+        }
+        p{
+            font-size: 17px;
+            padding: 1em 0 2em 0;
+            line-height: 1.4;
+
+            @include screen-for-desktop{
+                font-size: 18px;
+            }
+        }
+        button{
+            padding: 1em 6em;
+            border-radius: 10em;
+            border: none;
+            box-shadow: 0 5px 8px rgba(0, 0, 0, 0.5);
+
+            a{
+                font-size: 14px;
+                color: $violetColor;
+                text-decoration: none;
+
+                @include screen-for-desktop{
+                    font-size: 17px;
+                }
+            }
+        }
+    }
+}
+
+footer{
+    min-height: 10vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    @include screen-for-desktop{
+        justify-content: flex-endflex-end;
+    }
+
+    .icon-container{
+        border: 1px solid #fff;
+        border-radius: 100%;
+        width: 50px;
+        height: 50px;
+        position: relative;
+
+        & + .icon-container{
+            margin-left: 1.5em;
+        }
+
+        ion-icon{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 25px;
+            color: #fff;
+        }
+    }
+}
