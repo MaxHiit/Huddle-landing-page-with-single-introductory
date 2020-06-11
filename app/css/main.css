@@ -127,6 +127,7 @@ header .logo {
   border: none;
   -webkit-box-shadow: 0 5px 8px rgba(0, 0, 0, 0.5);
           box-shadow: 0 5px 8px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
 }
 
 .hero__content button a {
